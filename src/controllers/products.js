@@ -9,7 +9,7 @@ import {
 export const getAllProductsController = async (req, res) => {
   const products = await getAllProducts();
 
-  res.status(200).json({ data: products });
+  res.status(200).send(products);
 };
 
 export const createProductController = async (req, res) => {
@@ -17,7 +17,7 @@ export const createProductController = async (req, res) => {
 
   const newProduct = await createProduct(product);
 
-  res.status(201).json({ data: newProduct });
+  res.status(201).send(newProduct);
 };
 
 export const putProductController = async (req, res) => {
@@ -34,7 +34,7 @@ export const putProductController = async (req, res) => {
     throw createHttpError(404, 'Product not found');
   }
 
-  res.status(200).json({ data: updatedProduct });
+  res.status(200).send(updatedProduct);
 };
 
 export const deleteProductController = async (req, res) => {
