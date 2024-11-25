@@ -45,5 +45,5 @@ export const deleteProductController = async (req, res) => {
   if (!deletedProduct) {
     throw createHttpError(404, 'Contact not found');
   }
-  res.status(204).send();
+  res.status(200).send(deletedProduct);
 };
